@@ -1,28 +1,33 @@
-package java_5;
-import java.util.Scanner;
-
-public class armstrong {
+ublic class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int number = scanner.nextInt();
-        int originalNumber = number;
-        int result = 0;
-        int power = String.valueOf(number).length() - 1;
-
-        while (number != 0) {
-            int digit = number % 10;
-            result = result + (digit * (int)Math.pow(10, power));
-            number /= 10;
-            power--;
-        }
-
-        System.out.println(result + " " + originalNumber);
-
-        if (result == originalNumber) {
-            System.out.println(originalNumber + " is an Armstrong number.");
+        int number = 371; // Change the number here
+        if (isArmstrong(number)) {
+            System.out.println(number + " is an Armstrong number.");
         } else {
-            System.out.println(originalNumber + " is not an Armstrong number.");
+            System.out.println(number + " is not an Armstrong number.");
         }
+    }
+
+    // Function to check if a number is an Armstrong number
+    static boolean isArmstrong(int number) {
+        int originalNumber = number;
+        int numDigits = countDigits(number);
+        int sum = 0;
+        while (number > 0) {
+            int digit = number % 10;
+            sum += Math.pow(digit, numDigits);
+            number /= 10;
+        }
+        return sum == originalNumber;
+    }
+
+    // Function to count the number of digits in a number
+    static int countDigits(int number) {
+        int count = 0;
+        while (number != 0) {
+            number /= 10;
+            count++;
+        }
+        return count;
     }
 }
