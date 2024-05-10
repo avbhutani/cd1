@@ -1,19 +1,13 @@
-package java_5;
-
-public class fibonacci {
+public class Main {
     public static void main(String[] args) {
-        int n = 10; // number of terms in the series
-        int firstTerm = 0;
-        int secondTerm = 1;
-        
-        System.out.print("Fibonacci Series: ");
-        
-        for (int i = 1; i <= n; i++) {
-            System.out.print(firstTerm + " ");
-            
-            int nextTerm = firstTerm + secondTerm;
-            firstTerm = secondTerm;
-            secondTerm = nextTerm;
+        int n = 10; // Number of terms in the Fibonacci series
+        System.out.println("Fibonacci series of " + n + " terms:");
+        int prev = 0, curr = 1;
+        for (int i = 1; i <= n; ++i) {
+            System.out.print(prev + " ");
+            int sum = prev + curr;
+            prev = curr;
+            curr = sum;
         }
     }
 }
