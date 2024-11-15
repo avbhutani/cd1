@@ -1,21 +1,27 @@
+// gaining super user acccess
 sudo su
+
 sudo yum groupinstall "Development Tools"
 sudo yum install -y yum-utils
 
+// ansible installation
 sudo yum install ansible
 
 
-
+// Terraform installation
+sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 sudo yum -y install terraform
 
 
+// docker installation
 yum install -y docker
 docker login
 username:shubgor181
 password:
 
 
+// kubernetes install
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
@@ -27,8 +33,7 @@ mv ./kubectl ~/.local/bin/kubectl
 kubectl version --client
 
 
-
-
+// jenkins install
 sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo yum upgrade
@@ -42,6 +47,9 @@ sudo systemctl status jenkins
 
 publicip:8080
 
+
 sudo cat passlink
 copy paste using mouse
 
+//tgpt install 
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
